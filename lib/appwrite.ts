@@ -78,11 +78,11 @@ export async function getCurrentUser() {
             return null;
         }
 
-        const userAvatar = avatar.getInitials(result.name);
+        const userAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(result.name)}&background=0061FF&color=fff&size=512`;
 
         return {
             ...result,
-            avatar: userAvatar.toString(),
+            avatar: userAvatar,
         };
     } catch (error) {
         console.log(error);

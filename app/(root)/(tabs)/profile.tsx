@@ -53,7 +53,6 @@ export function Profile() {
         }
     }
 
-    console.log({ a: JSON.stringify(user?.avatar, null, 4) })
 
     return (
         <SafeAreaView
@@ -72,7 +71,13 @@ export function Profile() {
                 </View>
                 <View className='flex-row justify-center flex mt-5'>
                     <View className='flex flex-col items-center relative mt-5'>
-                        <Image className='size-44 relative rounded-full' source={{ uri: user?.avatar }} />
+                        <Image
+                            source={{ uri: user?.avatar }}
+                            style={{ width: 176, height: 176 }}
+                            className='size-44 relative rounded-full'
+                            key={user?.avatar}
+                        />
+
                         <TouchableOpacity
                             onPress={handleLogout}
                             className='absolute bottom-11 right-2'>
