@@ -20,7 +20,6 @@ export const account = new Account(client);
 
 export async function login() {
     try {
-        console.log("Login");
         const redirectUrl = Linking.createURL("/");
         const response = await account.createOAuth2Token(
             OAuthProvider.Google, redirectUrl
