@@ -1,6 +1,7 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { Card, FeatureCard } from "@/app/components/Card";
 import Search from "@/app/components/search";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
@@ -28,6 +29,8 @@ export default function Index() {
             </TouchableOpacity>
           </View>
         </View>
+        <FeatureCard />
+        <Card />
       </View>
     </SafeAreaView>
   );
