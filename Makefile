@@ -6,6 +6,9 @@ dev:
 dev-lan:
 	REACT_NATIVE_PACKAGER_HOSTNAME=10.42.0.1 npx expo start --lan --clear
 
+stop-expo:
+	adb shell am force-stop host.exp.exponent
+
 emulator-android:
 	adb kill-server
 	adb start-server
