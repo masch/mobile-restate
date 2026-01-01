@@ -148,3 +148,20 @@ export async function getProperties({ filter, query, limit }: {
         return [];
     }
 }
+
+export async function getPropertyById({ id }: { id: string }) {
+    try {
+        const result = await databases.getDocument(
+            config.databaseId!,
+            config.propertiesCollectionId!,
+            id,
+            [Query.select(["*", "agent.*", "gallery.*", "reviews.*"])]
+        );
+
+        console.log({ result })
+        return result;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
