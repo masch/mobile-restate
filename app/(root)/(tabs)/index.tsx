@@ -14,21 +14,14 @@ import icons from "@/constants/icons";
 
 import { Card, FeaturedCard } from "@/components/Cards";
 import Filters from "@/components/Filters";
-//import NoResults from "@/components/NoResults";
+import NoResults from "@/components/NoResults";
 import Search from "@/components/Search";
 
-//import { getLatestProperties, getProperties } from "@/lib/appwrite";
+import { getLatestProperties, getProperties } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/globalProvider";
 import { useAppwrite } from "@/lib/useAppWrite";
 
 const Home = () => {
-  const getLatestProperties = () => {
-    return []
-  }
-
-  const getProperties = () => {
-    return []
-  }
   const { user } = useGlobalContext();
 
   const params = useLocalSearchParams<{ query?: string; filter?: string }>();
@@ -78,8 +71,7 @@ const Home = () => {
           loading ? (
             <ActivityIndicator size="large" className="text-primary-300 mt-5" />
           ) : (
-            <Text>No results</Text>
-            // <NoResults />
+            <NoResults />
           )
         }
         ListHeaderComponent={() => (
@@ -120,7 +112,7 @@ const Home = () => {
               {latestPropertiesLoading ? (
                 <ActivityIndicator size="large" className="text-primary-300" />
               ) : !latestProperties || latestProperties.length === 0 ? (
-                <Text>No results</Text>
+                <NoResults />
               ) : (
                 <FlatList
                   data={latestProperties}
